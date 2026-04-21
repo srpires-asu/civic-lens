@@ -1,10 +1,37 @@
-/* CSS by ///ADD/// YOUR NAME */
+/* CSS by SERGIO PIRES */
 
 /* Imported Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
 /* ///ADD/// CSS Reset */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
 
 /* Root Variables */
 :root {
@@ -39,27 +66,264 @@ body.dark-mode {
 }
 
 /* ///ADD/// Skip Link Styles */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 0.75rem 1rem;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.skip-link:focus {
+  top: 0;
+}
 
 /* ///ADD/// Navigation Styles */
+.mobile-nav .menu-button {
+  display: inline-block;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.mobile-nav .menu {
+  display: none;
+  margin-top: 1rem;
+}
+
+.mobile-nav .menu li {
+  margin-bottom: 0.5rem;
+}
+
+.mobile-nav .menu a {
+  background-color: var(--news-flash);
+  padding: 0.5rem 1rem;
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
 
 /* ///ADD/// Global Layout Styles */
-
 /* ///ADD/// Global Text Styles */
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  background-color: var(--watchdog-white);
+  color: var(--truth-text);
+}
 
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+header {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  /* Variable font axes — you imported Merriweather with optical size, width, weight */
+  font-variation-settings: "opsz" 144, "wdth" 100, "wght" 700;
+}
+
+.tagline {
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+main {
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+/* Breaking News red cards */
+#breaking-news article {
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+}
+
+/* Featured Articles bordered cards */
+#featured-articles article {
+  border: 1px solid var(--truth-text);
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* Form styling */
+form {
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+form input[type="text"],
+form input[type="tel"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2px;
+  margin-top: 0.25rem;
+}
+
+fieldset {
+  border: 1px solid var(--watchdog-white);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+button[type="submit"] {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+footer {
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+footer ul a {
+  background-color: var(--news-flash);
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
 
 /* ///ADD/// medium styles 620px */
+@media (min-width: 620px) {
+  .mobile-nav .menu {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
 
+  .mobile-nav .menu-button {
+    display: none;
+  }
+
+  #breaking-news {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  #featured-articles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
 
 /* ///ADD/// large styles 920px */
+@media (min-width: 920px) {
+  #featured-articles {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  fieldset {
+    grid-column: 1 / -1;
+  }
+
+  button[type="submit"] {
+    grid-column: 1 / -1;
+  }
+}
 
 /* ///ADD/// x-large styles 1024px */
+@media (min-width: 1024px) {
+  header {
+    padding: 3rem 4rem;
+  }
 
+  main {
+    padding: 3rem 4rem;
+  }
+}
 
 /* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
+@media (prefers-color-scheme: light) {
+  body:not(.dark-mode) {
+    background-color: var(--watchdog-white);
+    color: var(--truth-text);
+  }
+}
 
+@media (prefers-color-scheme: dark) {
+  body:not(.light-mode) {
+    background-color: var(--truth-text);
+    color: var(--watchdog-white);
+  }
+
+  body:not(.light-mode) header,
+  body:not(.light-mode) footer {
+    background-color: #0a1929;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
+.mobile-nav:has(#menu-toggle:checked) .menu {
+    display: block;
+  }
 
+  /* Optional: rotate menu button when open */
+  .mobile-nav:has(#menu-toggle:checked) .menu-button {
+    background-color: var(--blue-bulletin);
+  }
 }
