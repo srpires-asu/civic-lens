@@ -402,13 +402,10 @@ p {
 
 #alerts fieldset > div {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
-}
-
-#alerts fieldset > div {
-  flex-direction: row;
 }
 
 #alerts fieldset input[type="checkbox"] {
@@ -444,9 +441,8 @@ p {
   letter-spacing: 0.1em;
   cursor: pointer;
   box-shadow:
-    inset 2px 2px 0 rgba(255, 255, 255, 0.4),
-    inset -2px -2px 0 var(--blue-bulletin),
-    0 4px 6px rgba(0, 0, 0, 0.4);
+    inset 2px 2px 0 var(--story-subtitle),
+    inset -2px -2px 0 var(--blue-bulletin);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
