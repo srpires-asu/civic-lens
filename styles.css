@@ -1,10 +1,75 @@
-/* CSS by ///ADD/// YOUR NAME */
+/* CSS by ///ADD/// SERGIO PIRES */
 
 /* Imported Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
 /* ///ADD/// CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-body);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
 
 /* Root Variables */
 :root {
@@ -40,26 +105,553 @@ body.dark-mode {
 
 /* ///ADD/// Skip Link Styles */
 
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 0.75rem 1rem;
+  z-index: 1000;
+  font-family: var(--font-body);
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--news-flash);
+  outline-offset: 2px;
+}
+
 /* ///ADD/// Navigation Styles */
+
+.mobile-nav {
+  margin-top: 1rem;
+  position: relative;
+}
+
+.menu-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  border: 2px solid var(--news-flash);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-button:hover,
+.menu-button:focus {
+  background-color: transparent;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover,
+.menu a:focus {
+  background-color: var(--blue-bulletin);
+}
+
 
 /* ///ADD/// Global Layout Styles */
 
+body {
+  background-color: var(--watchdog-white);
+  color: var(--truth-text);
+}
+
+header,
+footer {
+  position: relative;
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  padding: 2rem 1.5rem;
+}
+
+/* Center the content inside header, main, and footer with a max width */
+header > *,
+main > *,
+footer > * {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main {
+  padding: 2rem 1.5rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+section:last-child {
+  margin-bottom: 0;
+}
+
+footer {
+  margin-top: 2rem;
+}
+
 /* ///ADD/// Global Text Styles */
 
+/* Global Text Styles */
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Headings use Merriweather variable font */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.5rem;
+  /* Variable font: large optical size for display, slightly extended width */
+  font-variation-settings: "opsz" 144, "wdth" 100, "wght" 400;
+  margin-bottom: 0.25rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  /* Variable font: medium optical size, standard width, lighter weight */
+  font-variation-settings: "opsz" 36, "wdth" 100, "wght" 400;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  /* Variable font: text optical size tuned for smaller display */
+  font-variation-settings: "opsz" 18, "wdth" 100, "wght" 500;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.article-news h3 {
+  border-bottom: 1px solid black;
+}
+
+.article-featured h3 {
+  border-bottom: 1px solid var(--story-subtitle);
+}
+
+/* Tagline: small, bold, spaced */
+.tagline {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+/* The blockquote pull-quote in the Welcome section */
+blockquote.tagline {
+  text-align: center;
+  font-size: 1rem;
+  margin: 1.5rem auto;
+}
+
+/* Body paragraphs */
+p {
+  margin-bottom: 1rem;
+}
+
+/* Breaking News Section */
+#breaking-news {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+#breaking-news article {
+  background-color: var(--news-flash);
+  border: 1px solid black;
+  color: var(--watchdog-white);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#breaking-news article:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+#breaking-news video {
+  width: 100%;
+  height: auto;
+  background-color: #000;
+}
+
+/* Featured Articles Section */
+#featured-articles {
+  display: grid;
+  grid-template-columns: 1fr ;
+  gap: 1.5rem;
+}
+
+#featured-articles article {
+  padding: 1.25rem;
+  border: 2px solid var(--story-subtitle);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#featured-articles article:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+#breaking-news > h2 {
+  grid-column: 1 / -1;
+}
+
+#featured-articles > h2 {
+  grid-column: 1 / -1;
+}
+
+#alerts p {
+  margin-bottom: 1rem;
+}
+
+#alerts form {
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+#alerts form > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+#alerts form label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Text and tel inputs: white fill, no visible border */
+#alerts input[type="text"],
+#alerts input[type="tel"] {
+  padding: 0.75rem;
+  background-color: var(--watchdog-white);
+  color: var(--truth-text);
+  border: none;
+  font-size: 1rem;
+}
+
+#alerts input[type="text"]:focus,
+#alerts input[type="tel"]:focus {
+  outline: 3px solid var(--blue-bulletin);
+  outline-offset: 2px;
+}
+
+#alerts fieldset {
+  border: 1px solid var(--watchdog-white);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+#alerts legend {
+  padding: 0 0.5rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#alerts fieldset > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#alerts fieldset > div {
+  flex-direction: row;
+}
+
+#alerts fieldset input[type="checkbox"] {
+  accent-color: var(--news-flash);
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+#alerts fieldset > div input[type="checkbox"] {
+  accent-color: var(--blue-bulletin);
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+#alerts fieldset label {
+  font-weight: 400;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+#alerts button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--blue-bulletin);
+  color: var(--watchdog-white);
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.4),
+    inset -2px -2px 0 var(--blue-bulletin),
+    0 4px 6px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#alerts button[type="submit"]:hover,
+#alerts button[type="submit"]:focus {
+  background-color: var(--watchdog-white);
+  color: var(--blue-bulletin);
+}
+
+/* Footer: Social Links */
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+footer li a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--news-flash);
+  color: var(--watchdog-white);
+  border: 2px solid var(--news-flash);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease;
+}
+
+footer li a:hover,
+footer li a:focus {
+  background-color: transparent;
+}
+
+footer p {
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
 
 /* ///ADD/// medium styles 620px */
 
+@media (min-width: 620px) {
+
+  /* Hide the mobile menu button */
+  .menu-button {
+    display: none;
+  }
+
+  /* Show the nav list horizontally */
+  .menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    position: static;
+  }
+
+  /* Make buttons size to their content instead of full width */
+  .menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    background-color: var(--news-flash);
+    color: var(--watchdog-white);
+    border: 2px solid var(--news-flash);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+  }
+
+  .menu a:hover,
+  .menu a:focus {
+    background-color: transparent;
+    border-color: var(--news-flash);
+    border-width: 2px;
+  }
+
+  #breaking-news {
+    grid-template-columns: 1fr;
+  }
+
+  #featured-articles {
+    grid-template-columns: 1fr;
+  }
+
+  #alerts form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+  }
+  #alerts fieldset,
+  #alerts button[type="submit"] {
+    grid-column: 1 / -1;
+  }
+  #alerts fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+  }
+  #alerts fieldset legend {
+    grid-column: 1 / -1;
+  }
+}
 
 /* ///ADD/// large styles 920px */
+@media (min-width: 920px) {
+  /* Three columns for Featured Articles */
+  #breaking-news {
+    grid-template-columns: 1fr 1fr;
+  }
 
+  #featured-articles {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #alerts fieldset {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 
 /* ///ADD/// x-large styles 1024px */
+@media (min-width: 1024px) {
+  /* More generous padding at desktop sizes */
+  header,
+  footer,
+  main {
+    padding: 3rem;
+  }
 
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  #breaking-news {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #featured-articles {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #breaking-news,
+  #featured-articles {
+    gap: 2rem;
+  }
+
+}
 
 /* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
 
+/* Respect OS preference: light mode */
+@media (prefers-color-scheme: light) {
+  body:not(.dark-mode) {
+    background-color: var(--watchdog-white);
+    color: var(--truth-text);
+  }
+}
+
+/* Respect OS preference: dark mode */
+@media (prefers-color-scheme: dark) {
+  body:not(.light-mode) {
+    background-color: var(--truth-text);
+    color: var(--watchdog-white);
+  }
+
+  body:not(.light-mode) #featured-articles article {
+    border-color: var(--watchdog-white);
+  }
+
+  body:not(.light-mode) h3 {
+    border-bottom-color: var(--watchdog-white);
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
-@supports (selector(:has(*))) {
 
+@supports (selector(:has(*))) {
+  /* When the mobile menu checkbox is checked, show the menu list */
+  .mobile-nav:has(#menu-toggle:checked) .menu {
+    display: flex;
+  }
+
+  /* Flip the menu button to solid red when menu is open */
+  .mobile-nav:has(#menu-toggle:checked) .menu-button {
+    background-color: var(--news-flash);
+  }
 }
