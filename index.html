@@ -25,7 +25,7 @@
   <!-- ADD skip to main content -->
   <a class="skip-link" href="#main">Skip to main content</a>
   <header>
-    <button id="theme-toggle" aria-label="Toggle light/dark mode">
+    <button id="theme-toggle" aria-label="Toggle light/dark mode" aria-pressed="false">
       <svg width="35px" height="35px" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <clipPath id="a">
@@ -44,9 +44,9 @@
     <p class="tagline">See Clearly. Know Deeply. Act Justly.</p>
 
     <nav class="mobile-nav" aria-label="Mobile Navigation">
-      <input type="checkbox" id="menu-toggle" hidden>
+      <input type="checkbox" id="menu-toggle" hidden aria-controls="main-menu">
       <label for="menu-toggle" class="menu-button">Menu</label>
-      <ul class="menu">
+      <ul class="menu" id="main-menu">
         <li><a href="#breaking-news">Breaking News</a></li>
         <li><a href="#featured-articles">Featured Articles</a></li>
         <li><a href="#alerts">Alerts</a></li>
@@ -68,16 +68,16 @@
     <section id="breaking-news" aria-labelledby="breaking-heading">
       <h2 id="breaking-heading">Breaking News</h2>
       <article class="article-news">
-        <h3>Federal Investigation Launched into Water Mismanagement in the Southwest</h3>
+        <h3 id="water-management">Federal Investigation Launched into Water Mismanagement in the Southwest</h3>
         <p>The Department of Justice has announced a full investigation into decades of water distribution practices
           affecting tribal lands and rural communities.</p>
-        <video controls src="videos/water-management.mp4"></video>
+        <video controls src="videos/water-management.mp4" aria-labelledby="water-management"></video>
       </article>
       <article class="article-news">
-        <h3>Voter Suppression Bill Faces Pushback in State Supreme Court</h3>
+        <h3 id="voter-suppression">Voter Suppression Bill Faces Pushback in State Supreme Court</h3>
         <p>Civil rights advocates argue that the bill disenfranchises thousands of voters and potential voters of color
           and those in rural areas of the country.</p>
-        <video controls src="videos/voter-suppression.mp4"></video>
+        <video controls src="videos/voter-suppression.mp4" aria-labelledby="voter-suppression"></video>
       </article>
     </section>
 
@@ -187,14 +187,14 @@
   </main>
 
   <footer id="social">
-    <section>
-      <h2>Follow Us</h2>
+    <section aria-labelledby="follow-heading">
+    <h2 id="follow-heading">Follow Us</h2>
       <ul>
-        <li><a href="#main">Twitter/X</a></li>
-        <li><a href="#main">Instagram</a></li>
-        <li><a href="#main">YouTube</a></li>
-        <li><a href="#main">TikTok</a></li>
-        <li><a href="#main">LinkedIn</a></li>
+        <li><a href="#main" aria-label="Civic Lens on Twitter/X">Twitter/X</a></li>
+        <li><a href="#main" aria-label="Civic Lens on Instagram">Instagram</a></li>
+        <li><a href="#main" aria-label="Civic Lens on YouTube">YouTube</a></li>
+        <li><a href="#main" aria-label="Civic Lens on TikTok">TikTok</a></li>
+        <li><a href="#main" aria-label="Civic Lens on LinkedIn">LinkedIn</a></li>
       </ul>
       <p>&copy; 2025 Civic Lens. All rights reserved.</p>
     </section>
@@ -219,6 +219,9 @@
         body.classList.add(prefersDark ? 'light-mode' : 'dark-mode');
       }
     });
+
+    toggleButton.setAttribute('aria-pressed', body.classList.contains('dark-mode'));
+
   </script>
 
 </body>
