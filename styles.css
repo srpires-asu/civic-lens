@@ -303,6 +303,10 @@ footer {
   margin-bottom: 0.25rem;
 }
 
+.required{
+	color: var(--watchdog-white);
+}
+
 #alerts input[type="text"],
 #alerts input[type="tel"] {
   padding: 0.75rem;
