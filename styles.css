@@ -22,9 +22,7 @@ html {
 
 body {
   min-height: 100vh;
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: var(--font-body);
 }
 
 img,
@@ -61,7 +59,12 @@ ol {
   list-style: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   line-height: 1.2;
   text-wrap: balance;
@@ -81,7 +84,7 @@ p {
   --font-body: "Source Sans 3", sans-serif;
   --font-heading: 'Merriweather', serif;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  --transition: all 0.5s ease;
+  --transition: all 0.3s ease;
 }
 
 /* Manual Light/Dark Mode Styles*/
@@ -89,10 +92,12 @@ body.light-mode {
   background-color: var(--watchdog-white);
   color: var(--truth-text);
 }
+
 body.dark-mode {
   background-color: var(--truth-text);
   color: var(--watchdog-white);
 }
+
 #theme-toggle {
   position: absolute;
   top: 1rem;
@@ -114,7 +119,7 @@ body.dark-mode {
   z-index: 1000;
   font-family: var(--font-body);
   font-weight: 600;
-  transition: top 0.2s ease;
+  transition: top 0.3s ease;
 }
 
 .skip-link:focus {
@@ -181,7 +186,6 @@ body.dark-mode {
 
 /* ///ADD/// Global Layout Styles */
 
-/* Page-level containers */
 body {
   background-color: var(--watchdog-white);
   color: var(--truth-text);
@@ -195,10 +199,9 @@ footer {
   padding: 2rem 1.5rem;
 }
 
-/* Center the content inside header, main, and footer with a max width */
-header > *,
-main > *,
-footer > * {
+header>*,
+main>*,
+footer>* {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -227,7 +230,7 @@ footer {
   gap: 1.5rem;
 }
 
-#breaking-news > h2 {
+#breaking-news>h2 {
   grid-column: 1 / -1;
 }
 
@@ -262,7 +265,7 @@ footer {
   gap: 1.5rem;
 }
 
-#featured-articles > h2 {
+#featured-articles>h2 {
   grid-column: 1 / -1;
 }
 
@@ -279,7 +282,7 @@ footer {
   cursor: pointer;
 }
 
-/* Alerts Section (Subscribe Form)*/
+/* Alerts Section */
 #alerts p {
   margin-bottom: 1rem;
 }
@@ -291,7 +294,7 @@ footer {
   box-shadow: var(--shadow);
 }
 
-#alerts form > div {
+#alerts form>div {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
@@ -303,8 +306,8 @@ footer {
   margin-bottom: 0.25rem;
 }
 
-.required{
-	color: var(--watchdog-white);
+.required {
+  color: var(--watchdog-white);
 }
 
 #alerts input[type="text"],
@@ -336,7 +339,7 @@ footer {
   letter-spacing: 0.05em;
 }
 
-#alerts fieldset > div {
+#alerts fieldset>div {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -344,7 +347,7 @@ footer {
   margin-bottom: 0.5rem;
 }
 
-#alerts fieldset > div input[type="checkbox"] {
+#alerts fieldset>div input[type="checkbox"] {
   accent-color: var(--blue-bulletin);
   width: 1rem;
   height: 1rem;
@@ -421,7 +424,9 @@ body {
 }
 
 /* Headings - variable font*/
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-heading);
   font-weight: 400;
 }
@@ -490,24 +495,15 @@ p {
   }
 
   .menu a {
-    display: block;
-    padding: 0.5rem 1rem;
-    background-color: var(--news-flash);
-    color: var(--watchdog-white);
     border: 2px solid var(--news-flash);
-    text-align: center;
-    text-transform: uppercase;
     font-weight: 600;
     font-size: 1.2rem;
-    letter-spacing: 0.05em;
     transition: var(--transition);
   }
 
   .menu a:hover,
   .menu a:focus {
     background-color: transparent;
-    border-color: var(--news-flash);
-    border-width: 2px;
   }
 
   #alerts form {
@@ -549,6 +545,7 @@ p {
 
 /* ///ADD/// x-large styles 1024px */
 @media (min-width: 1024px) {
+
   header,
   footer,
   main {
@@ -605,6 +602,7 @@ p {
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -617,6 +615,7 @@ p {
 
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
+
   /* If the mobile menu checkbox is checked, show the menu list */
   .mobile-nav:has(#menu-toggle:checked) .menu {
     display: flex;
